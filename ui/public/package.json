@@ -1,0 +1,72 @@
+{
+    "name": "demo",
+    "productName": "项目名称",
+    "author": "作者",
+    "version": "1.0.0",
+    "main": "main.js",
+    "description": "项目描述",
+    "scripts": {
+      "pack": "electron-builder --dir",
+      "dist": "electron-builder",
+      "postinstall": "electron-builder install-app-deps",
+      "packager": "electron-packager . helloworld --out dist --platform=win32 --arch=x64 --electron-version=25.4.0 --download.mirrorOptions.mirror=https://npm.taobao.org/mirrors/electron/ --overwrite --ignore=node_modules --icon=favicon.ico",
+      "start": "electron ."
+    },
+    "build": {
+      "electronVersion": "25.4.0",
+      "mac": {
+        "icon": "./favicon.ico"
+      },
+      
+      "linux": {
+        "icon": "./favicon.ico"
+      },
+  
+  
+      "win": {
+        "icon": "./favicon.ico",
+  
+        "requestedExecutionLevel": "highestAvailable",
+        "target": [
+          {
+            "target": "nsis",
+            "arch": [
+              "x64"
+            ]
+          }
+        ]
+      },
+      "appId": "demo",
+      "artifactName": "demo-${version}-${arch}.${ext}",
+      "nsis": {
+        "artifactName": "demo-${version}-${arch}.${ext}",
+  
+        "installerIcon": "./favicon.ico",
+        "uninstallerIcon": "./favicon.ico",
+        "installerHeaderIcon": "./favicon.ico"
+      },
+      "extraResources": [
+        {
+          "from": "./",
+          "to": "app-server",
+          "filter": [
+            "**/*"
+          ]
+        }
+      ],
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "http://xxxxx/download/"
+        }
+      ]
+    },
+    "devDependencies": {
+      "core-js": "^2.4.1",
+      "electron": "^25.4.0",
+      "electron-builder": "^24.6.3",
+      "electron-packager": "^12.1.0",
+      "electron-updater": "^4.0.0"
+    }
+  }
+  

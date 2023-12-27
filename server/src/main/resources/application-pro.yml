@@ -1,0 +1,18 @@
+server:
+  port: 5299
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: faird-admin
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
